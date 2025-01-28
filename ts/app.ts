@@ -1,5 +1,5 @@
 // CORRECT ANSWER:
-const CORRECT_ANSWER: string = "INTER";
+const CORRECT_ANSWER: string = "MILAN";
 
 // custom types:
 type BoxMessage = "invalid" | "correct" | "lost"
