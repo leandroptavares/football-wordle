@@ -1,3 +1,3 @@
-#Football-Wordle
+# Football Wordle
 
-Project created using TypeScript Version 5.7.3
+## Small project created focusing on implement the game logic and the user interactions using TypeScript Version 5.7.3.
