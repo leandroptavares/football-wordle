@@ -5,6 +5,10 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "strict": true
-  }
+    "strict": true,
+    "outDir": "./js",
+    "rootDir": "./ts"
+  },
+  "include": ["ts/**/*"],
+  "exclude": ["node_modules"]
 }
