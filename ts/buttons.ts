@@ -1,6 +1,6 @@
 // keyboard:
 const keyboard = document.querySelector(".keyboard") as HTMLDivElement;
-const keyboardLettters = Array.from(keyboard.children) as HTMLButtonElement[];
+const keyboardLettters = Array.from(keyboard.querySelectorAll('.key')) as HTMLButtonElement[];
 
 // grid:
 const grid = document.querySelector(".grid") as HTMLDivElement;

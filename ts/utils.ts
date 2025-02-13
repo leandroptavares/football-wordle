@@ -85,8 +85,12 @@ function selectNextRow(): void {
   isGameOver()
 
   if (isGameRunning.status) {
-    currentRow = Array.from(grid.children).filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`)
-    isRowFull();
+  currentRow = rowElements
+   .map((row) => Array.from(row.querySelectorAll('.tile') as NodeListOf<HTMLElement>))
+   .flat()
+   .filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`);
+
+   isRowFull();
   }
 }
 
@@ -105,6 +109,13 @@ function isGameOver(): void {
   deleteButton.disabled = true;
  }
 
- let currentRow: Element[] = Array.from(grid.children).filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`);
+ const rowElements = Array.from(grid.children) as HTMLDivElement[];
+
+ let currentRow: HTMLElement[] = rowElements
+   .map((row) => Array.from(row.querySelectorAll('.tile') as NodeListOf<HTMLElement>))
+   .flat()
+   .filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`);
+
+
 
  export { isRowFull, convertUserGuess, isUserGuessValid, showMessageBox, updateKeyboad, isGameOver, selectNextRow, currentRow }

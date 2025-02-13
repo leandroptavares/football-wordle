@@ -72,7 +72,10 @@ function selectNextRow() {
     isGameRunning.status = attemptNumber.attempt > 6 ? false : true;
     isGameOver();
     if (isGameRunning.status) {
-        currentRow = Array.from(grid.children).filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`);
+        currentRow = rowElements
+            .map((row) => Array.from(row.querySelectorAll('.tile')))
+            .flat()
+            .filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`);
         isRowFull();
     }
 }
@@ -89,5 +92,9 @@ function isGameOver() {
     enterButton.disabled = true;
     deleteButton.disabled = true;
 }
-let currentRow = Array.from(grid.children).filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`);
+const rowElements = Array.from(grid.children);
+let currentRow = rowElements
+    .map((row) => Array.from(row.querySelectorAll('.tile')))
+    .flat()
+    .filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`);
 export { isRowFull, convertUserGuess, isUserGuessValid, showMessageBox, updateKeyboad, isGameOver, selectNextRow, currentRow };
