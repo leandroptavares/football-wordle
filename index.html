@@ -4,89 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Football Wordle</title>
-  <link rel="stylesheet" href="../style/style.css">
+  <link rel="stylesheet" href="../style/tailwind-output.css">
   <script type="module" src="../js/app.js" defer></script>
 </head>
 <body>
-  <div class="game-container">
-    <div class="message"><strong>Start guessing! What's the club? ⚽</strong></div>
-    <div class="grid">
-      <div class="tile" style="animation-delay: 0ms;" data-row="1"></div>
-      <div class="tile" style="animation-delay: 100ms;" data-row="1"></div>
-      <div class="tile" style="animation-delay: 200ms;" data-row="1"></div>
-      <div class="tile" style="animation-delay: 300ms;" data-row="1"></div>
-      <div class="tile" style="animation-delay: 400ms;" data-row="1"></div>
+  <div class="container mx-auto flex flex-col justify-center items-center mt-8">
+    <div class="text-2xl font-bold">
+      <span class="text-indigo-500">football</span>wordle.
+    </div>
+    <div id="message-box" class="message-box">What's the club?</div>
+    <div class="grid mt-3">
+      <div class="grid mt-3">
+        <div class="row">
+          <div class="tile transition delay-100 ease-in" data-row="1"></div>
+          <div class="tile transition delay-150 ease-in" data-row="1"></div>
+          <div class="tile transition delay-200 ease-in" data-row="1"></div>
+          <div class="tile transition delay-250 ease-in" data-row="1"></div>
+          <div class="tile transition delay-300 ease-in" data-row="1"></div>
+        </div>
 
-      <div class="tile" style="animation-delay: 0ms;" data-row="2"></div>
-      <div class="tile" style="animation-delay: 100ms;" data-row="2"></div>
-      <div class="tile" style="animation-delay: 200ms;" data-row="2"></div>
-      <div class="tile" style="animation-delay: 300ms;" data-row="2"></div>
-      <div class="tile" style="animation-delay: 400ms;" data-row="2"></div>
+        <div class="row">
+          <div class="tile transition delay-100 ease-in" data-row="2"></div>
+          <div class="tile transition delay-150 ease-in" data-row="2"></div>
+          <div class="tile transition delay-200 ease-in" data-row="2"></div>
+          <div class="tile transition delay-250 ease-in" data-row="2"></div>
+          <div class="tile transition delay-300 ease-in" data-row="2"></div>
+        </div>
 
-      <div class="tile" style="animation-delay: 0ms;" data-row="3"></div>
-      <div class="tile" style="animation-delay: 100ms;" data-row="3"></div>
-      <div class="tile" style="animation-delay: 200ms;" data-row="3"></div>
-      <div class="tile" style="animation-delay: 300ms;" data-row="3"></div>
-      <div class="tile" style="animation-delay: 400ms;" data-row="3"></div>
+        <div class="row">
+          <div class="tile transition delay-100 ease-in" data-row="3"></div>
+          <div class="tile transition delay-150 ease-in" data-row="3"></div>
+          <div class="tile transition delay-200 ease-in" data-row="3"></div>
+          <div class="tile transition delay-250 ease-in" data-row="3"></div>
+          <div class="tile transition delay-300 ease-in" data-row="3"></div>
+        </div>
 
-      <div class="tile" style="animation-delay: 0ms;" data-row="4"></div>
-      <div class="tile" style="animation-delay: 100ms;" data-row="4"></div>
-      <div class="tile" style="animation-delay: 200ms;" data-row="4"></div>
-      <div class="tile" style="animation-delay: 300ms;" data-row="4"></div>
-      <div class="tile" style="animation-delay: 400ms;" data-row="4"></div>
+        <div class="row">
+          <div class="tile transition delay-100 ease-in" data-row="4"></div>
+          <div class="tile transition delay-150 ease-in" data-row="4"></div>
+          <div class="tile transition delay-200 ease-in" data-row="4"></div>
+          <div class="tile transition delay-250 ease-in" data-row="4"></div>
+          <div class="tile transition delay-300 ease-in" data-row="4"></div>
+        </div>
 
-      <div class="tile" style="animation-delay: 0ms;" data-row="5"></div>
-      <div class="tile" style="animation-delay: 100ms;" data-row="5"></div>
-      <div class="tile" style="animation-delay: 200ms;" data-row="5"></div>
-      <div class="tile" style="animation-delay: 300ms;" data-row="5"></div>
-      <div class="tile" style="animation-delay: 400ms;" data-row="5"></div>
+        <div class="row">
+          <div class="tile transition delay-100 ease-in" data-row="5"></div>
+          <div class="tile transition delay-150 ease-in" data-row="5"></div>
+          <div class="tile transition delay-200 ease-in" data-row="5"></div>
+          <div class="tile transition delay-250 ease-in" data-row="5"></div>
+          <div class="tile transition delay-300 ease-in" data-row="5"></div>
+        </div>
 
-      <div class="tile" style="animation-delay: 0ms;" data-row="6"></div>
-      <div class="tile" style="animation-delay: 100ms;" data-row="6"></div>
-      <div class="tile" style="animation-delay: 200ms;" data-row="6"></div>
-      <div class="tile" style="animation-delay: 300ms;" data-row="6"></div>
-      <div class="tile" style="animation-delay: 400ms;" data-row="6"></div>
+        <div class="row">
+          <div class="tile transition delay-100 ease-in" data-row="6"></div>
+          <div class="tile transition delay-150 ease-in" data-row="6"></div>
+          <div class="tile transition delay-200 ease-in" data-row="6"></div>
+          <div class="tile transition delay-250 ease-in" data-row="6"></div>
+          <div class="tile transition delay-300 ease-in" data-row="6"></div>
+        </div>
+      </div>
     </div>
 
 
     <!-- Virtual keyboard -->
-    <div class="keyboard">
+    <div class="keyboard flex flex-col mt-6">
       <!-- Top row -->
-      <button class="key">Q</button>
-      <button class="key">W</button>
-      <button class="key">E</button>
-      <button class="key">R</button>
-      <button class="key">T</button>
-      <button class="key">Y</button>
-      <button class="key">U</button>
-      <button class="key">I</button>
-      <button class="key">O</button>
-      <button class="key">P</button>
-
+      <div class="flex justify-between">
+        <button class="key">Q</button>
+        <button class="key">W</button>
+        <button class="key">E</button>
+        <button class="key">R</button>
+        <button class="key">T</button>
+        <button class="key">Y</button>
+        <button class="key">U</button>
+        <button class="key">I</button>
+        <button class="key">O</button>
+        <button class="key">P</button>
+      </div>
       <!-- Middle row -->
-      <button class="key">A</button>
-      <button class="key">S</button>
-      <button class="key">D</button>
-      <button class="key">F</button>
-      <button class="key">G</button>
-      <button class="key">H</button>
-      <button class="key">J</button>
-      <button class="key">K</button>
-      <button class="key">L</button>
-      <button class="key">Ç</button>
+      <div class="flex justify-center md:gap-1">
+        <button class="key">A</button>
+        <button class="key">S</button>
+        <button class="key">D</button>
+        <button class="key">F</button>
+        <button class="key">G</button>
+        <button class="key">H</button>
+        <button class="key">J</button>
+        <button class="key">K</button>
+        <button class="key">L</button>
+        <!-- <button class="key">Ç</button> -->
+      </div>
 
       <!-- Bottom row -->
-      <button class="key">Z</button>
-      <button class="key">X</button>
-      <button class="key">C</button>
-      <button class="key">V</button>
-      <button class="key">B</button>
-      <button class="key">N</button>
-      <button class="key">M</button>
-      <button class="key" id="enter">Enter</button>
-      <button class="key" id="delete">Del</button>
+      <div class="flex justify-between">
+        <button class="key" id="enter">Enter</button>
+        <button class="key">Z</button>
+        <button class="key">X</button>
+        <button class="key">C</button>
+        <button class="key">V</button>
+        <button class="key">B</button>
+        <button class="key">N</button>
+        <button class="key">M</button>
+        <button class="key" id="delete">Delete</button>
+      </div>
     </div>
   </div>
-  <div id="message-box" class="message-box"></div>
 </body>
 </html>

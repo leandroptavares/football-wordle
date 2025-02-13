@@ -5,7 +5,6 @@ function selectLetterHandler(event: MouseEvent): void {
   const chosenLetterButton = event.target as HTMLButtonElement;
   if (chosenLetterButton.id !== "enter" && chosenLetterButton.id !== "delete") {
     const chosenLetter: string | null = chosenLetterButton.textContent;
-
     if (chosenLetter && chosenLetter.length === 1) {
       addLetterHandler(chosenLetter);
     }
