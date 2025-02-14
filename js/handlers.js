@@ -1,5 +1,6 @@
-import { isRowFull, convertUserGuess, isUserGuessValid, showMessageBox, updateKeyboad, isGameOver, selectNextRow, currentRow } from "./utils.js";
+import { isRowFull, convertUserGuess, isUserGuessValid, showMessageBox, updateKeyboad, isGameOver, selectNextRow, currentRow, resetGrid } from "./utils.js";
 import { CORRECT_ANSWER, userGuessAsString, isTheGuessCorret } from "./game-status.js";
+import { modalBox, container } from "./buttons.js";
 function selectLetterHandler(event) {
     const chosenLetterButton = event.target;
     if (chosenLetterButton.id !== "enter" && chosenLetterButton.id !== "delete") {
@@ -72,4 +73,12 @@ function checkAnswerHandler(userGuessLetters) {
         selectNextRow();
     }
 }
-export { selectLetterHandler, deleteLetterHandler, submitGuessHandler };
+function closeModalHandler() {
+    modalBox.classList.add("invisible", "opacity-0");
+    container.classList.remove("opacity-25", "pointer-events-none");
+}
+function restartGameHandler() {
+    resetGrid();
+    closeModalHandler();
+}
+export { selectLetterHandler, deleteLetterHandler, submitGuessHandler, closeModalHandler, restartGameHandler };
