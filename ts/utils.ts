@@ -49,27 +49,28 @@ function showMessageBox(statusMessage: MessageBox): void {
   if (messageBoxElement) {
     if (statusMessage === "invalid") {
       messageBoxElement.textContent = "Club not found... Try another one!";
-      messageBoxElement.classList.add("show", "invalid");
+      messageBoxElement.classList.add("visible", "invalid-word");
 
       setTimeout(() => {
-        messageBoxElement.classList.remove("show", "invalid");
+        messageBoxElement.classList.remove("visible", "invalid-word");
       }, 2000);
 
       currentRow.forEach((tile) => {
-        tile.classList.add("invalid-input");
+        tile.classList.add("bg-red-400");
+        console.log(messageBoxElement)
 
         setTimeout(() => {
-          tile.classList.remove("invalid-input");
+          tile.classList.remove("bg-red-400");
         }, 400);
       });
 
     } else if (statusMessage === "lost"){
       messageBoxElement.textContent = `${CORRECT_ANSWER}`;
-      messageBoxElement.classList.add("show", "lost");
+      messageBoxElement.classList.add("visible", "game-over");
     }
     else {
-      messageBoxElement.textContent = "WOW! You got it!";
-      messageBoxElement.classList.add("show", "correct");
+      messageBoxElement.textContent = "WOW! You got it";
+      messageBoxElement.classList.add("visible", "correct-word");
     }
   }
 }

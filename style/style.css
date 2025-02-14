@@ -9,22 +9,33 @@
 }
 
 .tile {
-  @apply w-12 h-12 mx-2 mt-2 border border-gray-400 text-xl font-bold flex justify-center items-center
+  @apply w-12 h-12 mx-1 mt-2 border border-gray-400 text-xl font-bold flex justify-center items-center
 }
 
 
 #enter, #delete {
-  @apply w-12 md:w-18 text-sm
+  @apply w-12 md:w-20 text-sm
 }
 
 .correct-color {
-  @apply bg-[#6aaa64] text-white
+  @apply bg-[#6aaa64] text-white border-[#6aaa64]
 }
 
 .present-color {
-  @apply bg-[#c9b458] text-white
+  @apply bg-[#c9b458] text-white border-[#c9b458]
 }
 
 .absent-color {
-  @apply bg-[#787c7e] text-white
+  @apply bg-[#787c7e] text-white border-[#787c7e]
+}
+
+.correct-word {
+  @apply bg-[#6aaa64] border-green-400 text-white font-semibold rounded relative
+}
+
+.invalid-word {
+  @apply bg-red-100 border border-red-400 text-red-700 rounded relative
+}
+.game-over {
+  @apply bg-black text-white rounded relative
 }
