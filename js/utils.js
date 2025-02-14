@@ -1,5 +1,10 @@
-import { keyboardLettters, messageBoxElement, enterButton, deleteButton, grid } from "./buttons.js";
+import { keyboardLettters, messageBoxElement, enterButton, deleteButton, grid, container, modalBox } from "./buttons.js";
 import { CORRECT_ANSWER, attemptNumber, userGuessAsString, isGameRunning, isTheGuessCorret } from "./game-status.js";
+const rowElements = Array.from(grid.children);
+let currentRow = rowElements
+    .map((row) => Array.from(row.querySelectorAll('.tile')))
+    .flat()
+    .filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`);
 async function isUserGuessValid(userGuess) {
     try {
         const res = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${userGuess}`);
@@ -49,7 +54,6 @@ function showMessageBox(statusMessage) {
             }, 2000);
             currentRow.forEach((tile) => {
                 tile.classList.add("bg-red-400");
-                console.log(messageBoxElement);
                 setTimeout(() => {
                     tile.classList.remove("bg-red-400");
                 }, 400);
@@ -71,6 +75,7 @@ function isRowFull() {
 function selectNextRow() {
     attemptNumber.attempt++;
     isGameRunning.status = attemptNumber.attempt > 6 ? false : true;
+    console.log(isGameRunning);
     isGameOver();
     if (isGameRunning.status) {
         currentRow = rowElements
@@ -92,10 +97,23 @@ function isGameOver() {
     }
     enterButton.disabled = true;
     deleteButton.disabled = true;
+    setTimeout(() => {
+        modalBox.classList.remove("invisible", "opacity-0");
+        container.classList.add("opacity-25", "pointer-events-none");
+    }, 3000);
 }
-const rowElements = Array.from(grid.children);
-let currentRow = rowElements
-    .map((row) => Array.from(row.querySelectorAll('.tile')))
-    .flat()
-    .filter((tile) => tile.getAttribute("data-row") === `${attemptNumber.attempt}`);
-export { isRowFull, convertUserGuess, isUserGuessValid, showMessageBox, updateKeyboad, isGameOver, selectNextRow, currentRow };
+function resetGrid() {
+    rowElements.forEach((row) => row.querySelectorAll('.tile').forEach((tile) => {
+        tile.textContent = "";
+        tile.classList.remove("correct-color", "present-color", "absent-color");
+    }));
+    keyboardLettters.forEach((key) => key.className = "key");
+    attemptNumber.attempt = 0;
+    isGameRunning.status = true;
+    isTheGuessCorret.status = false;
+    selectNextRow();
+    enterButton.disabled = false;
+    deleteButton.disabled = false;
+    messageBoxElement.classList.remove("visible", "correct-word", "game-over", "invalid-word");
+}
+export { isRowFull, convertUserGuess, isUserGuessValid, showMessageBox, updateKeyboad, isGameOver, selectNextRow, currentRow, resetGrid };
