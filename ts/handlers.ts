@@ -49,6 +49,7 @@ async function submitGuessHandler() {
 function checkAnswerHandler(userGuessLetters: string[]): void {
   let remainingLetters: string[] = [...CORRECT_ANSWER]
   let currentRoundLetters: string[] = [...CORRECT_ANSWER]
+  console.log(CORRECT_ANSWER)
 
   userGuessLetters.forEach((letter: string, index) => {
     if (CORRECT_ANSWER.includes(letter) && remainingLetters.includes(letter)) {
