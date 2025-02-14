@@ -1,5 +1,5 @@
 import { keyboardLettters, messageBoxElement, enterButton, deleteButton, grid, container, modalBox } from "./buttons.js";
-import { CORRECT_ANSWER, attemptNumber, userGuessAsString, isGameRunning, isTheGuessCorret } from "./game-status.js";
+import { CORRECT_ANSWER, attemptNumber, userGuessAsString, isGameRunning, isTheGuessCorret, selectNewAnswer } from "./game-status.js";
 import { MessageBox } from "./types.js";
 
 const rowElements = Array.from(grid.children) as HTMLDivElement[];
@@ -88,7 +88,6 @@ function isRowFull(): void {
 function selectNextRow(): void {
   attemptNumber.attempt++
   isGameRunning.status = attemptNumber.attempt > 6 ? false : true;
-  console.log(isGameRunning)
 
   isGameOver()
 
@@ -134,6 +133,7 @@ function resetGrid(): void {
   isTheGuessCorret.status = false
 
   selectNextRow()
+  selectNewAnswer()
 
   enterButton.disabled = false;
   deleteButton.disabled = false;

@@ -1,5 +1,5 @@
 import { keyboardLettters, messageBoxElement, enterButton, deleteButton, grid, container, modalBox } from "./buttons.js";
-import { CORRECT_ANSWER, attemptNumber, userGuessAsString, isGameRunning, isTheGuessCorret } from "./game-status.js";
+import { CORRECT_ANSWER, attemptNumber, userGuessAsString, isGameRunning, isTheGuessCorret, selectNewAnswer } from "./game-status.js";
 const rowElements = Array.from(grid.children);
 let currentRow = rowElements
     .map((row) => Array.from(row.querySelectorAll('.tile')))
@@ -75,7 +75,6 @@ function isRowFull() {
 function selectNextRow() {
     attemptNumber.attempt++;
     isGameRunning.status = attemptNumber.attempt > 6 ? false : true;
-    console.log(isGameRunning);
     isGameOver();
     if (isGameRunning.status) {
         currentRow = rowElements
@@ -112,6 +111,7 @@ function resetGrid() {
     isGameRunning.status = true;
     isTheGuessCorret.status = false;
     selectNextRow();
+    selectNewAnswer();
     enterButton.disabled = false;
     deleteButton.disabled = false;
     messageBoxElement.classList.remove("visible", "correct-word", "game-over", "invalid-word");
