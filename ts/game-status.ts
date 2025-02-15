@@ -1,16 +1,13 @@
 import { NumberOfAttempts, UserGuess, Status } from "./types.js";
 
 // CORRECT ANSWER:
-const randomClubs: string[] = ["MILAN", "INTER", "LEEDS", "DERBY", "BAHIA", "BANGU", "OSAKA", "VELEZ", "TIGRE", "CERRO", "WALES", "LAZIO", "DIJON", "MAINZ", "QUEEN", "CLYDE", "MIAMI", "PUMAS", "ELCHE", "AROSA", "GENOA", "BRAGA", "PORTO", "SERPA", "SABAH", "GOMEL", "TREZE", "COLON", "KERRY", "MALMO"]
+const randomClubs: string[] = ["CEARA", "MILAN", "INTER", "LEEDS", "DERBY", "BAHIA", "BANGU", "OSAKA", "VELEZ", "TIGRE", "CERRO", "WALES", "LAZIO", "DIJON", "MAINZ", "QUEEN", "CLYDE", "MIAMI", "PUMAS", "ELCHE", "AROSA", "GENOA", "BRAGA", "PORTO", "SERPA", "SABAH", "GOMEL", "TREZE", "COLON", "KERRY", "MALMO", "LILLE", "BREST", "BETIS", "LECCE", "UNION", "DHAMK", "LANUS"]
 
-// let CORRECT_ANSWER: string = randomClubs[Math.floor(Math.random() * randomClubs.length)];
-
-let CORRECT_ANSWER: string = "MIAMI"
+let CORRECT_ANSWER: string = randomClubs[Math.floor(Math.random() * randomClubs.length)];
 
 function selectNewAnswer(): string {
   return CORRECT_ANSWER = randomClubs[Math.floor(Math.random() * randomClubs.length)];
 }
-
 
 // game running? /correct answer?
 let isGameRunning: Status = {status: true};

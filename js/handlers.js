@@ -40,30 +40,27 @@ async function submitGuessHandler() {
 }
 function checkAnswerHandler(userGuessLetters) {
     let remainingLetters = [...CORRECT_ANSWER];
-    let currentRoundLetters = [...CORRECT_ANSWER];
     console.log(CORRECT_ANSWER);
+    // First, mark the correct letters. Remove the found letters from the remainingLetters array
     userGuessLetters.forEach((letter, index) => {
-        if (CORRECT_ANSWER.includes(letter) && remainingLetters.includes(letter)) {
-            if (CORRECT_ANSWER[index] === letter) {
-                remainingLetters[index] = "";
-                currentRow[index].classList.add("correct-color");
-                updateKeyboad(letter, "correct-color");
+        if (CORRECT_ANSWER[index] === letter) {
+            remainingLetters[index] = "";
+            currentRow[index].classList.add("correct-color");
+            updateKeyboad(letter, "correct-color");
+        }
+    });
+    // Then, mark the present and absent letters
+    userGuessLetters.forEach((letter, index) => {
+        if (CORRECT_ANSWER[index] !== letter) { // this skips the correct letters
+            if (remainingLetters.includes(letter)) { // this ensures we mark only letters that are still in the remainingLetters array
+                currentRow[index].classList.add("present-color");
+                updateKeyboad(letter, "present-color");
+                remainingLetters[remainingLetters.indexOf(letter)] = ""; // remove the 1st occurrence of letter from the remainingLetters array
             }
             else {
-                if (currentRoundLetters.includes(letter)) {
-                    currentRow[index].classList.add("present-color");
-                    updateKeyboad(letter, "present-color");
-                    currentRoundLetters.splice(currentRoundLetters.findIndex(e => e === letter), 1);
-                }
-                else {
-                    currentRow[index].classList.add("absent-color");
-                    updateKeyboad(letter, "absent-color");
-                }
+                currentRow[index].classList.add("absent-color");
+                updateKeyboad(letter, "absent-color");
             }
-        }
-        else {
-            currentRow[index].classList.add("absent-color");
-            updateKeyboad(letter, "absent-color");
         }
     });
     if (userGuessAsString.userGuess === CORRECT_ANSWER) {
