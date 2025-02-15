@@ -1,6 +1,6 @@
 import { isRowFull, convertUserGuess, isUserGuessValid, showMessageBox, updateKeyboad, isGameOver, selectNextRow, currentRow, resetGrid } from "./utils.js";
 import { CORRECT_ANSWER, userGuessAsString, isTheGuessCorret } from "./game-status.js";
-import { modalBox, container } from "./buttons.js";
+import { modalBox, container, modalInstructions } from "./buttons.js";
 
 function selectLetterHandler(event: MouseEvent): void {
   const chosenLetterButton = event.target as HTMLButtonElement;
@@ -48,7 +48,6 @@ async function submitGuessHandler() {
 
 function checkAnswerHandler(userGuessLetters: string[]): void {
   let remainingLetters: string[] = [...CORRECT_ANSWER];
-  console.log(CORRECT_ANSWER);
 
   // First, mark the correct letters. Remove the found letters from the remainingLetters array
   userGuessLetters.forEach((letter: string, index) => {
@@ -83,7 +82,8 @@ function checkAnswerHandler(userGuessLetters: string[]): void {
 }
 
 function closeModalHandler(): void {
-  modalBox.classList.add("invisible", "opacity-0");
+  modalInstructions.classList.add("hidden")
+  modalBox.classList.add("hidden");
   container.classList.remove("opacity-25", "pointer-events-none");
 }
 

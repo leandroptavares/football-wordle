@@ -118,7 +118,7 @@ function isGameOver(): void {
   deleteButton.disabled = true;
 
   setTimeout(() => {
-    modalBox.classList.remove("invisible", "opacity-0")
+    modalBox.classList.remove("hidden")
     container.classList.add("opacity-25", "pointer-events-none") }, 3000);
  }
 
