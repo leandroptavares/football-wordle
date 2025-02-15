@@ -122,26 +122,26 @@
 
   <div id="modal-instructions" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border bg-white border-gray-200 md:w-96 w-full h-auto rounded transition-opacity duration-500 shadow-xl">
     <div class="p-6">
-      <p class="font-bold text-lg">How to play:<p>
+      <p class="font-bold text-lg">How to play:</p>
       <p class="text-base font-semibold">Guess the Wordle in 6 tries <span class="italic">(hint: it's a football club)</span>.</p>
-      <div class="p-5 text-sm space-y-2">
+      <div class="p-5 text-base space-y-2">
         <ul class="list-disc">
           <li>Each guess must be a valid 5-letter football club (you can try national teams too).</li>
           <li>The colors of the tiles will change in 3 possible ways:</li>
         </ul>
-        <p><div class="tile correct-color">A</div></p>
+        <div class="tile correct-color">A</div>
         <p><span class="font-semibold">A</span> is in the correct answer <span class="font-semibold">AND</span> in the correct spot.</p>
-        <p><div class="tile present-color">B</div></p>
+        <div class="tile present-color">B</div>
         <p><span class="font-semibold">B</span> is in the correct answer <span class="font-semibold">BUT</span> not in the correct spot.</p>
-        <p><div class="tile absent-color">C</div></p>
+        <div class="tile absent-color">C</div>
         <p><span class="font-semibold">C</span> is not included in any spot.</p>
       </div>
-
       <div class="flex justify-center items-center h-full gap-2">
         <button id="close-modal-instructions-btn" class="text-white rounded bg-indigo-400 p-2 cursor-pointer"><span class="font-bold">Got it!</span></button>
       </div>
     </div>
   </div>
+
 
 </body>
 </html>
