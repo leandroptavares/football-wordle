@@ -1,6 +1,7 @@
 // CORRECT ANSWER:
 const randomClubs = ["MILAN", "INTER", "LEEDS", "DERBY", "BAHIA", "BANGU", "OSAKA", "VELEZ", "TIGRE", "CERRO", "WALES", "LAZIO", "DIJON", "MAINZ", "QUEEN", "CLYDE", "MIAMI", "PUMAS", "ELCHE", "AROSA", "GENOA", "BRAGA", "PORTO", "SERPA", "SABAH", "GOMEL", "TREZE", "COLON", "KERRY", "MALMO"];
-let CORRECT_ANSWER = randomClubs[Math.floor(Math.random() * randomClubs.length)];
+// let CORRECT_ANSWER: string = randomClubs[Math.floor(Math.random() * randomClubs.length)];
+let CORRECT_ANSWER = "MIAMI";
 function selectNewAnswer() {
     return CORRECT_ANSWER = randomClubs[Math.floor(Math.random() * randomClubs.length)];
 }

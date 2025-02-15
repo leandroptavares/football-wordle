@@ -44,10 +44,12 @@ function updateKeyboad(letter: string, classToAdd: string): void {
   if (keyboardLettter) {
     if (keyboardLettter.classList.contains("correct-color")) {
       return
-    } else if (keyboardLettter.classList.contains("present-color")) {
+    } else if (keyboardLettter.classList.contains("present-color") && classToAdd != "absent-color") {
       keyboardLettter.classList.replace("present-color", classToAdd);
     } else {
-      keyboardLettter.classList.add(classToAdd);
+      if (!keyboardLettter.classList.contains("present-color")) {
+        keyboardLettter.classList.add(classToAdd);
+      }
     }
   }
 }
