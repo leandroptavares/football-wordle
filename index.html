@@ -8,7 +8,7 @@
   <script type="module" src="../js/app.js" defer></script>
 </head>
 <body>
-  <div id="container" class="container mx-auto flex flex-col justify-center items-center mt-8">
+  <div id="container" class="container mx-auto flex flex-col justify-center items-center mt-4 opacity-25 pointer-events-none">
     <div class="text-2xl font-bold">
       <span class="text-indigo-500">football</span>wordle.
     </div>
@@ -63,7 +63,7 @@
     </div>
 
     <!-- Virtual keyboard -->
-    <div class="keyboard flex flex-col mt-4 ">
+    <div class="keyboard flex flex-col mt-4">
       <!-- Top row -->
       <div class="flex justify-between">
         <button class="key">Q</button>
@@ -107,10 +107,39 @@
     <div id="message-box" class="invisible mt-4 px-4 py-2"></div>
   </div>
 
-  <div id="modal-box" class="invisible opacity-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border bg-amber-100 border-amber-50 md:w-72 w-full h-64 rounded transition-opacity duration-500">
-    <div class="flex justify-center items-center h-full gap-2">
-      <button id="play-again-btn" class="border rounded bg-indigo-200 border-indigo-400 p-2 hover:bg-indigo-400 cursor-pointer"><span class="font-bold">Play again</span></button>
-      <button id="close-modal-btn" class="border rounded cursor-pointer p-2">Close</button>
+  <div id="modal-box" class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border bg-white border-gray-200 md:w-72 w-full max-w-sm h-64 rounded transition-opacity duration-500 shadow-xl">
+    <div class="flex flex-col justify-center items-center h-full space-y-3">
+      <p class="text-center font-bold text-lg">What a match!</p>
+      <div class="flex justify-center items-center gap-2">
+        <button id="play-again-btn" class="text-white rounded bg-indigo-400 p-2 cursor-pointer">
+          <span class="font-bold">Play again</span>
+        </button>
+        <button id="close-modal-btn" class="border rounded cursor-pointer p-2">Close</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="modal-instructions" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border bg-white border-gray-200 md:w-96 w-full h-auto rounded transition-opacity duration-500 shadow-xl">
+    <div class="p-6">
+      <p class="font-bold text-lg">How to play:<p>
+      <p class="text-base font-semibold">Guess the Wordle in 6 tries <span class="italic">(hint: it's a football club)</span>.</p>
+      <div class="p-5 text-sm space-y-2">
+        <ul class="list-disc">
+          <li>Each guess must be a valid 5-letter football club (you can try national teams too).</li>
+          <li>The colors of the tiles will change in 3 possible ways:</li>
+        </ul>
+        <p><div class="tile correct-color">A</div></p>
+        <p><span class="font-semibold">A</span> is in the correct answer <span class="font-semibold">AND</span> in the correct spot.</p>
+        <p><div class="tile present-color">B</div></p>
+        <p><span class="font-semibold">B</span> is in the correct answer <span class="font-semibold">BUT</span> not in the correct spot.</p>
+        <p><div class="tile absent-color">C</div></p>
+        <p><span class="font-semibold">C</span> is not included in any spot.</p>
+      </div>
+
+      <div class="flex justify-center items-center h-full gap-2">
+        <button id="close-modal-instructions-btn" class="text-white rounded bg-indigo-400 p-2 cursor-pointer"><span class="font-bold">Got it!</span></button>
+      </div>
     </div>
   </div>
 
