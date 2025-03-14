@@ -1,6 +1,6 @@
 import { isRowFull, convertUserGuess, isUserGuessValid, showMessageBox, updateKeyboad, isGameOver, selectNextRow, currentRow, resetGrid } from "./utils.js";
 import { CORRECT_ANSWER, userGuessAsString, isTheGuessCorret } from "./game-status.js";
-import { modalBox, container, modalInstructions } from "./buttons.js";
+import { modalBox, container, modalInstructions, enterButton } from "./buttons.js";
 
 function selectLetterHandler(event: MouseEvent): void {
   const chosenLetterButton = event.target as HTMLButtonElement;
@@ -36,6 +36,9 @@ function deleteLetterHandler(): void {
 }
 
 async function submitGuessHandler() {
+  console.log("running submit funcion")
+  enterButton.disabled = true
+
   const userGuessLetters: string[] = convertUserGuess()
   const validGuess: boolean | undefined = await isUserGuessValid(userGuessAsString.userGuess)
 

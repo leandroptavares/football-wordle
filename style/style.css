@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .key {
-  @apply bg-gray-300 hover:bg-gray-400 font-semibold rounded-sm p-3.5 mt-2 mx-0.5 w-3 cursor-pointer flex justify-center items-center md:w-11 text-lg
+  @apply bg-gray-300 hover:bg-gray-400 font-semibold rounded-sm p-3.5 mt-2 mx-0.5 w-3 cursor-pointer flex justify-center items-center md:w-11 text-lg disabled:opacity-50
 }
 
 .row {
