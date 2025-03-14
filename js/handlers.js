@@ -29,8 +29,7 @@ function deleteLetterHandler() {
     }
 }
 async function submitGuessHandler() {
-    console.log("running submit funcion");
-    enterButton.disabled = true;
+    enterButton.disabled = true; // avoid this button to trigger the function again until all the necessary actions are completed
     const userGuessLetters = convertUserGuess();
     const validGuess = await isUserGuessValid(userGuessAsString.userGuess);
     if (validGuess) {

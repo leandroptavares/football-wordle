@@ -36,7 +36,7 @@ function deleteLetterHandler(): void {
 }
 
 async function submitGuessHandler() {
-  enterButton.disabled = true // avoid this function to run again until all the necessary actions are completed
+  enterButton.disabled = true // avoid this button to trigger the function again until all the necessary actions are completed
 
   const userGuessLetters: string[] = convertUserGuess()
   const validGuess: boolean | undefined = await isUserGuessValid(userGuessAsString.userGuess)
