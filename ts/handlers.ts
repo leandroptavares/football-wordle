@@ -36,7 +36,6 @@ function deleteLetterHandler(): void {
 }
 
 async function submitGuessHandler() {
-  console.log("running submit funcion")
   enterButton.disabled = true
 
   const userGuessLetters: string[] = convertUserGuess()
